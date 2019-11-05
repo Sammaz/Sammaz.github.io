@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/last.css">
+</head>
+<body >
+    <div class="sh_head">
+        <div class="sh_w12 clearfix">
+            <div class="sh_left sh_head_left">
+                <a href="/">
+                    <img src="./images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="sh_right sh_head_right  sh_text_right">
+                <a class="sh_center " href="javascript:;">首页</a>
+                <a class="sh_center " href="javascript:;">技术展示</a>
+                <a class="sh_center " href="javascript:;">项目案例</a>
+                <a class="sh_center" href="javascript:;">新闻资讯</a>
+                <a class="sh_center" href="javascript:;">教育培训</a>
+                <a class="sh_center on" href="javascript:;">实验室</a>
+            </div>
+        </div>
+    </div>
+   <div class="sh_shiyan_main">
+       <div class="skw-pages">
+           <div class="skw-page skw-page-1 active">
+               <div class="skw-page__half skw-page__half--left">
+                   <div class="skw-page__skewed">
+                       <div class="skw-page__content"></div>
+                   </div>
+               </div>
+               <div class="skw-page__half skw-page__half--right">
+                   <div class="skw-page__skewed">
+                       <div class="skw-page__content">
+                           <h2 class="skw-page__heading">实验室</h2>
+                           <p class="skw-page__description">全屏页面滚动 Nothing to do here, continue scrollingNothing to do here, continueNothing to do here, continue scrollingNothing to do here, continueNothing to do here, continue scrollingNothing to do here, continue</p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="skw-page skw-page-2">
+               <div class="skw-page__half skw-page__half--left">
+                   <div class="skw-page__skewed">
+                       <div class="skw-page__content">
+                           <h2 class="skw-page__heading">实验室2</h2>
+                           <p class="skw-page__description">Nothing to do here, continue scrollingNothing to do here, continue scrollingNothing to do here, continue scrollingNothing to do here, continue scrollingNothing to do here, continue scrollingNothing to do here, continue scrolling.</p>
+                       </div>
+                   </div>
+               </div>
+               <div class="skw-page__half skw-page__half--right">
+                   <div class="skw-page__skewed">
+                       <div class="skw-page__content"></div>
+                   </div>
+               </div>
+           </div>
+
+           <div class="skw-page skw-page-3">
+               <div class="skw-page__half skw-page__half--left">
+                   <div class="skw-page__skewed">
+                       <div class="skw-page__content"></div>
+                   </div>
+               </div>
+               <div class="skw-page__half skw-page__half--right">
+                   <div class="skw-page__skewed">
+                       <div class="skw-page__content">
+                           <h2 class="skw-page__heading">实验室3</h2>
+                           <p class="skw-page__description">The end is near, I promise!</p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="skw-page skw-page-4">
+               <div class="skw-page__half skw-page__half--left">
+                   <div class="skw-page__skewed">
+                       <div class="skw-page__content">
+                           <h2 class="skw-page__heading">实验室<4/h2>
+                           <p class="skw-page__description">Ok, ok, just one more scroll!</p>
+                       </div>
+                   </div>
+               </div>
+               <div class="skw-page__half skw-page__half--right">
+                   <div class="skw-page__skewed">
+                       <div class="skw-page__content"></div>
+                   </div>
+               </div>
+           </div>
+           <div class="skw-page skw-page-5">
+               <div class="skw-page__half skw-page__half--left">
+                   <div class="skw-page__skewed">
+                       <div class="skw-page__content"></div>
+                   </div>
+               </div>
+               <div class="skw-page__half skw-page__half--right">
+                   <div class="skw-page__skewed">
+                       <div class="skw-page__content">
+                           <h2 class="skw-page__heading">实验室5</h2>
+                           <p class="skw-page__description">
+                               Feel free to check Feel free to check Feel free to check Feel free to check Feel free to check Feel free to check Feel free to check Feel free to check Feel free to check
+                           </p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+       </div>
+
+   </div>
+
+
+    <div class="sh_foot">
+        <div class="sh_w12">
+            Copyright © 2017
+        </div>
+    </div>
+
+
+
+
+<script src="./js/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+
+        var curPage = 1;
+        var numOfPages = $(".skw-page").length;
+        var animTime = 1000;
+        var scrolling = false;
+        var pgPrefix = ".skw-page-";
+
+        function pagination() {
+            scrolling = true;
+
+            $(pgPrefix + curPage).removeClass("inactive").addClass("active");
+            $(pgPrefix + (curPage - 1)).addClass("inactive");
+            $(pgPrefix + (curPage + 1)).removeClass("active");
+
+            setTimeout(function() {
+                scrolling = false;
+            }, animTime);
+        };
+
+        function navigateUp() {
+            if (curPage === 1) return;
+            curPage--;
+            pagination();
+        };
+
+        function navigateDown() {
+            if (curPage === numOfPages) return;
+            curPage++;
+            pagination();
+        };
+
+        $(document).on("mousewheel DOMMouseScroll click", function(e) {
+            if (scrolling) return;
+            if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
+                navigateUp();
+            } else {
+                navigateDown();
+            }
+        });
+
+        $(document).on("keydown ", function(e) {
+            if (scrolling) return;
+            if (e.which === 38) {
+                navigateUp();
+            } else if (e.which === 40) {
+                navigateDown();
+            }
+        });
+
+    });
+
+</script>
+</body>
+</html>
